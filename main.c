@@ -92,10 +92,9 @@ int main() {
                 //printf("List sorted.");
                 break;
             case 13:
-                if (StrList_isSorted(list))
-                    printf("true");
-                else
-                    printf("false");
+                if (StrList_isSorted(list)){printf("true");}
+                    
+                else{printf("false");}
 
                 printf("\n");
                 break;
