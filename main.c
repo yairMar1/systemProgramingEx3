@@ -47,6 +47,7 @@ int main() {
             case 4:
             printf("%zu", StrList_size(list));
                 //printf("Length of the list: %zu", StrList_size(list));
+                printf("\n");
                 break;
             case 5:
                 //printf("Enter the index: ");
@@ -58,11 +59,13 @@ int main() {
             case 6:
             printf("%d", StrList_printLen(list));
                 //printf("Total number of characters in the list: %d", StrList_printLen(list));
+                printf("\n");
                 break;
             case 7:
                 //printf("Enter the string to count: ");
                 scanf(" %[^\n]s", data);
                 printf("%d", StrList_count(list, data));
+                printf("\n");
                 //printf("Occurrences of \"%s\": %d", data, StrList_count(list, data));
                 break;
             case 8:
@@ -90,9 +93,9 @@ int main() {
                 break;
             case 13:
                 if (StrList_isSorted(list))
-                    printf("True");
+                    printf("true");
                 else
-                    printf("False");
+                    printf("false");
 
                 printf("\n");
                 break;
