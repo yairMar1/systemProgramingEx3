@@ -108,7 +108,9 @@ void StrList_print(const StrList* StrList){
    if(StrList){
    const Node* p1 = StrList->_head;
     while (p1){
-        printf("%s ", p1->_data);
+        printf("%s", p1->_data);
+        if (p1->_next) { // אם יש עוד פריטים אחרי זה, הדפס רווח
+                printf(" ");}
         p1 = p1->_next;
         }
     }
