@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h> // Include this for strtok
 #include "StrList.h"
-#define MAX 100
+#define MAX 1000
 
 int main() {
     StrList *list = StrList_alloc();
@@ -96,7 +96,7 @@ int main() {
                 //printf("Exiting program.");
                 break;
             default:
-                //printf("Invalid choice!");
+                return 0;//printf("Invalid choice!");
         }
     }
     while (choice != 0);
