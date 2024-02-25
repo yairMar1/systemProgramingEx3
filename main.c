@@ -60,6 +60,7 @@ int main() {
             case 7:
                 //printf("Enter the string to count: ");
                 scanf(" %[^\n]s", data);
+                printf("%d", StrList_count(list, data));
                 //printf("Occurrences of \"%s\": %d", data, StrList_count(list, data));
                 break;
             case 8:
