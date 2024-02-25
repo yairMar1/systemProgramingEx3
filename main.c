@@ -51,6 +51,7 @@ int main() {
             case 5:
                 //printf("Enter the index: ");
                 scanf("%d", &index);
+                //printf("your data");
                 StrList_printAt(list, index);
                 break;
             case 6:

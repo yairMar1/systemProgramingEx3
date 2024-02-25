@@ -117,16 +117,15 @@ void StrList_print(const StrList* StrList){
 }
 
 void StrList_printAt(const StrList* Strlist,int index){
-    //if (Strlist->_size <= index || index < 0){return;}
-    if (Strlist && index >= 0 && index < Strlist->_size){
-   const Node* p1 = Strlist->_head;
+    if (Strlist && index >= 0 && index < Strlist->_size) {
+        const Node* p1 = Strlist->_head;
 
-    for(int i=0;i<index;i++){
-        p1 = p1->_next;
-    }
+        for (int i = 0; i < index; i++) {
+            p1 = p1->_next;
+        }
 
-    printf(" %s",p1->_data);
-    }
+        printf("%s", p1->_data);
+        }
 }
 
 int StrList_printLen(const StrList* Strlist){
@@ -182,25 +181,34 @@ void StrList_remove(StrList* StrList, const char* data) {
     }
 }
 
-void StrList_removeAt(StrList* StrList, int index){
-    
-    if (StrList->_size <= index || index < 0){return;}
+void StrList_removeAt(StrList* StrList, int index) {
+    if (StrList == NULL || index < 0 || index >= StrList->_size) {
+        return; // אם הרשימה היא NULL או האינדקס לא חוקי, יש לצאת מהפונקציה
+    }
 
     Node* p1 = StrList->_head;
-    Node* p2 = StrList->_head;
+    Node* p2 = NULL; // מצביע לקודם למחיקה
 
-    for (size_t i = 0; i < index; i++){
-
-        //if(StrList->_size != 0){
-            for (size_t j = 0; j < i-1; j++){
-                p2 = p2->_next;
-            }
-            p2->_next = p1->_next;
-        //}
+    // אם יש רק פריט אחד ברשימה, נצטרך לשנות את ראש הרשימה
+    if (index == 0) {
+        StrList->_head = p1->_next;
         Node_free(p1);
         --(StrList->_size);
+        return;
     }
+
+    // נמצא את הפריט באינדקס הנתון
+    for (int i = 0; i < index; i++) {
+        p2 = p1;
+        p1 = p1->_next;
+    }
+
+    // מקשרים את הפריט הקודם לפריט הבא, ומשחררים את הפריט
+    p2->_next = p1->_next;
+    Node_free(p1);
+    --(StrList->_size);
 }
+
 
 int StrList_isEqual(const StrList* StrList1, const StrList* StrList2){
     if (StrList1->_size != StrList2->_size){return 0;}
