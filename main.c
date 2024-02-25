@@ -42,7 +42,7 @@ int main() {
             case 3:
                 //printf("List contents:");
                 if(list==NULL){return 0;}
-                else{StrList_print(list);}
+                else{StrList_print(list);printf("\n");}
                 break;
             case 4:
             printf("%zu", StrList_size(list));
@@ -53,6 +53,7 @@ int main() {
                 scanf("%d", &index);
                 //printf("your data");
                 StrList_printAt(list, index);
+                printf("\n");
                 break;
             case 6:
             printf("%d", StrList_printLen(list));
@@ -92,6 +93,8 @@ int main() {
                     printf("True");
                 else
                     printf("False");
+
+                printf("\n");
                 break;
             case 0:
                 //printf("Exiting program.");
