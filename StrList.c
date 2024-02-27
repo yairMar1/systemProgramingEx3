@@ -109,7 +109,7 @@ void StrList_print(const StrList* StrList){
    const Node* p1 = StrList->_head;
     while (p1){
         printf("%s", p1->_data);
-        if (p1->_next) { // אם יש עוד פריטים אחרי זה, הדפס רווח
+        if (p1->_next) { 
                 printf(" ");}
         p1 = p1->_next;
         }
@@ -183,13 +183,12 @@ void StrList_remove(StrList* StrList, const char* data) {
 
 void StrList_removeAt(StrList* StrList, int index) {
     if (StrList == NULL || index < 0 || index >= StrList->_size) {
-        return; // אם הרשימה היא NULL או האינדקס לא חוקי, יש לצאת מהפונקציה
+        return; 
     }
 
     Node* p1 = StrList->_head;
-    Node* p2 = NULL; // מצביע לקודם למחיקה
+    Node* p2 = NULL; 
 
-    // אם יש רק פריט אחד ברשימה, נצטרך לשנות את ראש הרשימה
     if (index == 0) {
         StrList->_head = p1->_next;
         Node_free(p1);
@@ -197,13 +196,11 @@ void StrList_removeAt(StrList* StrList, int index) {
         return;
     }
 
-    // נמצא את הפריט באינדקס הנתון
     for (int i = 0; i < index; i++) {
         p2 = p1;
         p1 = p1->_next;
     }
 
-    // מקשרים את הפריט הקודם לפריט הבא, ומשחררים את הפריט
     p2->_next = p1->_next;
     Node_free(p1);
     --(StrList->_size);
